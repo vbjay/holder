@@ -1,54 +1,35 @@
 {
-  "name": "holderjs",
-  "officialName": "Holder",
-  "version": "2.9.3",
-  "summary": "client side image placeholders",
-  "description": "Holder uses SVG to render image placeholders entirely in browser.",
-  "author": {
-    "name": "Ivan Malopinsky",
-    "url": "http://imsky.co"
+  "name": "holder",
+  "version": "3.0.0-pre",
+  "description": "Holder renders image placeholders.",
+  "main": "index.js",
+  "scripts": {
+    "rollup": "rollup --name Holder --format umd --output holder.js index.js",
+    "babel": "babel holder.js --out-file holder.js",
+    "build": "npm run rollup && npm run babel",
+    "minify": "uglifyjs holder.js --output holder.min.js",
+    "postbuild": "npm run minify"
   },
-  "homepage": "http://holderjs.com",
-  "license": "MIT",
-  "keywords": [
-    "images",
-    "placeholders",
-    "client-side",
-    "canvas",
-    "generation",
-    "development",
-    "svg"
-  ],
-  "main": "holder.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/imsky/holder.git"
   },
+  "keywords": [
+    "images",
+    "placholders",
+    "svg"
+  ],
+  "author": "Ivan Malopinsky",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/imsky/holder/issues"
   },
+  "homepage": "https://github.com/imsky/holder#readme",
   "devDependencies": {
-    "component-type": "^1.1.0",
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.2.0",
-    "gulp-header": "^1.0.2",
-    "gulp-jsbeautifier": "0.0.5",
-    "gulp-jshint": "^1.6.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.3",
-    "gulp-todo": "^0.3.8",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "~3",
-    "moment": "^2.6.0",
-    "node-http-server": "^3.0.0",
-    "trim": "0.0.1",
-    "webdriverio": "^2.4.5",
-    "webpack-stream": "^2.1.1"
-  },
-  "scripts": {
-    "test": "node test/index"
-  },
-  "dependencies": {
-    "shaven": "^0.8.1"
+    "babel-cli": "^6.14.0",
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "rollup": "^0.34.10",
+    "uglify-js": "^2.7.3"
   }
 }
